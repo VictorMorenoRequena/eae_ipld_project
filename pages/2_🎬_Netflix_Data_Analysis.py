@@ -33,6 +33,8 @@ def load_data():
 
     movies_df = None  # TODO: Ex 2.1: Load the dataset using Pandas, use the data_path variable and set the index column to "show_id"
 
+import pandas as pd
+import matplotlib.pyplot as plt
     return movies_df   # a Pandas DataFrame
 
 
