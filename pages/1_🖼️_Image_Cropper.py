@@ -31,7 +31,7 @@ img = st.file_uploader("Upload an image:", type=["png", "jpg", "jpeg"])
 
 if img is None:
     is_example = True
-    with Image.open("/Users/victormorenorequena/Downloads/EAE/Programming/eae_ipld_project-main/data/starry_night.png") as img:
+    with Image.open("starry_night.png") as img:
         img_arr = np.array(img)
 else:
     with Image.open(img) as img:
