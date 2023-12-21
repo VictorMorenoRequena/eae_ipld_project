@@ -160,7 +160,7 @@ for city in selected_cities:
     city_df_period = city_df[(city_df['Date'] >= start_date) & (city_df['Date'] <= end_date)]
     plt.plot(city_df_period['Date'], city_df_period['AvgTemperatureCelsius'], label=city)
 
-plt.title("Temperatures Over Time for Selected Cities")
+plt.title("Temperatures Over Time")
 plt.xlabel("Date")
 plt.ylabel("Average Temperature (°C)")
 plt.legend()
@@ -175,7 +175,7 @@ for city in selected_cities:
     city_df_period = city_df[(city_df['Date'] >= start_date) & (city_df['Date'] <= end_date)]
     plt.hist(city_df_period['AvgTemperatureCelsius'], bins=20, alpha=0.5, label=city)
 
-plt.title(f'Temperature Distribution in Selected Cities from {start_date} to {end_date}')
+plt.title(f'Temperature Distribution from {start_date} to {end_date}')
 plt.xlabel('Temperature (°C)')
 plt.ylabel('Frequency')
 plt.legend()
