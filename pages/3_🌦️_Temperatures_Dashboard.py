@@ -1,8 +1,8 @@
-# the libraries you have to use
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Some extra libraries for date conversions and build the webapp
+
 import streamlit as st
 
 
@@ -123,13 +123,13 @@ st.write("##")
 st.header("Comparing the Temperatures of the Cities")
 
 if unique_cities_list is not None:
-    # Getting the list of cities to compare from the user
+    
     selected_cities = st.multiselect("Select the cities to compare:", unique_cities_list, default=["Buenos Aires", "Dakar"], max_selections=4)
 
     cols2 = st.columns([6, 1, 6])
 
-    start_date = cols2[0].date_input("Select the start date:", pd.to_datetime("2009-01-01").date())     # Getting the start date from the user
-    end_date = cols2[2].date_input("Select the end date:", pd.to_datetime("2018-12-31").date())         # Getting the end date from the user
+    start_date = cols2[0].date_input("Select the start date:", pd.to_datetime("2009-01-01").date())     
+    end_date = cols2[2].date_input("Select the end date:", pd.to_datetime("2018-12-31").date())         
 
 else:
     st.subheader("⚠️ You still need to develop the Ex 3.3.")
