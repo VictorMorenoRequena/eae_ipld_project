@@ -154,7 +154,6 @@ plt.ylabel("Average Temperature (°C)")
 plt.legend()
 c.pyplot(fig)
 
-#now for the other graph
 
 plt.figure(figsize=(15, 5))
 
@@ -167,6 +166,8 @@ plt.title(f'Temperature Distribution in Selected Cities from {start_date} to {en
 plt.xlabel('Temperature (°C)')
 plt.ylabel('Frequency')
 plt.legend()
+c.pyplot(fig)
+#now for the other graph
 
 
 
