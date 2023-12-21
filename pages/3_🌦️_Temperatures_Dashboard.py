@@ -141,21 +141,34 @@ if unique_cities_list is not None and len(selected_cities) > 0:
     # TODO: Ex 3.7: Plot the temperatures over time for the selected cities for the selected time period,
     # every city has to be its own line with a different color.
 
-fig = plt.figure(figsize=(10, 5))
+# TODO: Ex 3.7: Plot the temperatures over time for the selected cities for the selected time period,
+    # every city has to be its own line with a different color.
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Assuming temps_df is your DataFrame containing temperature data
+
+selected_cities = ["Munich", "Buenos Aires", "Tokyo"]
+start_date = pd.to_datetime("2008-01-01").date()
+end_date = pd.to_datetime("2010-12-31").date()
+
+# Line Plot
+fig1 = plt.figure(figsize=(10, 5))
 
 for city in selected_cities:
-    city_df = temps_df[temps_df['City'] == city]  # Extract data for the selected city
-    city_df_period = city_df[(city_df['Date'] >= start_date) & (city_df['Date'] <= end_date)]  # Filter data within the selected time period
-    plt.plot(city_df_period['Date'], city_df_period['AvgTemperatureCelsius'], label=city)  # Plot the data for the city
+    city_df = temps_df[temps_df['City'] == city]
+    city_df_period = city_df[(city_df['Date'] >= start_date) & (city_df['Date'] <= end_date)]
+    plt.plot(city_df_period['Date'], city_df_period['AvgTemperatureCelsius'], label=city)
 
 plt.title("Temperatures Over Time for Selected Cities")
 plt.xlabel("Date")
 plt.ylabel("Average Temperature (°C)")
 plt.legend()
-c.pyplot(fig)
 
+c.pyplot(fig1)
 
-plt.figure(figsize=(15, 5))
+# Histogram Plot
+fig2 = plt.figure(figsize=(10, 5))
 
 for city in selected_cities:
     city_df = temps_df[temps_df['City'] == city]
@@ -166,28 +179,5 @@ plt.title(f'Temperature Distribution in Selected Cities from {start_date} to {en
 plt.xlabel('Temperature (°C)')
 plt.ylabel('Frequency')
 plt.legend()
-c.pyplot(fig)
-#now for the other graph
 
-
-
-    # TODO: Make a histogram of the temperature reads of a list of selected cities, for the selected time period, 
-    # every city has to be its own distribution with a different color.
-
-    # for city in selected_cities:
-    #     city_df = None            # TODO
-    #     city_df_period = None     # TODO
-    #     plt.hist()                # TODO
-
-    # plt.title()   # TODO
-    # plt.xlabel()  # TODO
-    # plt.ylabel()  # TODO
-    
-
-
-
-
-
-
-
-
+c.pyplot(fig2)
