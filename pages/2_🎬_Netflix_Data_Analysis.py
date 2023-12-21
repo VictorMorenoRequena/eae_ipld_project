@@ -53,15 +53,34 @@ max_year = movies_df['release_year'].max()
 
 # TODO: Ex 2.3: How many director names are missing values (NaN)?
 num_missing_directors = movies_df['director'].isna().sum()
-
 # TODO: Ex 2.4: How many different countries are there in the data?
 
-all_countries = ', '.split(', ').join(movies_df['country'])
-n_countries = len(set(all_countries))
+all_countries = [country.strip() for countries in movies_df['country'].dropna() for country in countries.split(',')]
+unique_countries = set(all_countries)
+n_countries = len(unique_countries)
+
+
+def extract_duration_minutes(duration):
+    try:
+        # Extract numeric part from the string (e.g., '90 min' -> 90)
+        return int(''.join(filter(str.isdigit, str(duration))))
+    except ValueError:
+        return None
+
+# Apply the function to create a new 'duration_minutes' column
+movies_df['duration_minutes'] = movies_df['duration'].apply(extract_duration_minutes)
+
+# Calculate the average duration in minutes
+
+
+
+
+
 
 # TODO: Ex 2.5: How many characters long are on average the title names?
-avg_title_length = movies_df['title_length'].mean()
+avg_title_length = movies_df['duration_minutes'].mean()
 
+st.write("Avg Title Length:", str(round(avg_title_length, 2)) if avg_title_length is not None else None)
 
 # ----- Displaying the extracted information metrics -----
 
@@ -107,18 +126,19 @@ else:
 st.write("##")
 st.header("Avg Duration of Movies by Year")
 
-# TODO: Ex 2.7: Make a line chart of the average duration of movies (not TV shows) in minutes for every year across all the years. 
+# TODO: Ex 2.7: Make a line chart of the average duration of movies (not TV shows) in minutes for every year across all the years.
 movies_avg_duration_per_year = movies_df.loc[movies_df['type'] == 'Movie'].groupby('release_year')['duration_minutes'].mean()
 
 if movies_avg_duration_per_year is not None:
     fig = plt.figure(figsize=(9, 6))
 
-    # plt.plot(...# TODO: generate the line plot using plt.plot() and the information from movies_avg_duration_per_year (the vertical axes with the minutes value) and its index (the horizontal axes with the years)
+    plt.plot(movies_avg_duration_per_year.index, movies_avg_duration_per_year, marker='o', linestyle='-')  # Add this line
 
     plt.title("Average Duration of Movies Across Years")
+    plt.xlabel("Year")
+    plt.ylabel("Average Duration (minutes)")
 
     st.pyplot(fig)
 
 else:
     st.subheader("⚠️ You still need to develop the Ex 2.7.")
-

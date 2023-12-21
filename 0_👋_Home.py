@@ -15,7 +15,7 @@ with st.sidebar:
     st.header("Introduction to Programming Languages for Data")
     st.write("###")
     st.write("***Final Project - Dec 2023***")
-    st.write("**Author:** <YVictor Moreno Requena>")
+    st.write("**Author:** Victor Moreno Requena")
     st.write("**Instructor:** [Enric Domingo](https://github.com/enricd)")
 
 
@@ -39,7 +39,7 @@ st.write(f"""
 
 
 # ----- Personal title or short description -----
-current_role = "Current Student at EAE"   # TODO: Change this
+current_role = " Data Analyst & Mathematician"   # TODO: Change this
 
 st.write(f"""<div style="text-align: center;"><h4><i>{current_role}</i></h4></div>""", unsafe_allow_html=True)
 
@@ -51,15 +51,11 @@ st.subheader("Born in Barcelona, Spain, just graduated from Clarke University in
 
 # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
 st.write("""
-- 🧑‍💻 I am a Data Analyst 
+- 🧑‍💻 Programming Languages: Python 
 
 - 🛩️ Bachelor Degree in Mathematics & Bachelor Degree in Business Administration>
 
 - ❤️  Numbers, Probabilities, Data, Logic
-
-         
-
-- 🤖 Football kicking parabollas project. 
 
 - 🏂 Soccer, football, traveling
 
