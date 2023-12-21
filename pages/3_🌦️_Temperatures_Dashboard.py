@@ -154,6 +154,21 @@ plt.ylabel("Average Temperature (°C)")
 plt.legend()
 c.pyplot(fig)
 
+#now for the other graph
+
+plt.figure(figsize=(15, 5))
+
+for city in selected_cities:
+    city_df = temps_df[temps_df['City'] == city]
+    city_df_period = city_df[(city_df['Date'] >= start_date) & (city_df['Date'] <= end_date)]
+    plt.hist(city_df_period['AvgTemperatureCelsius'], bins=20, alpha=0.5, label=city)
+
+plt.title(f'Temperature Distribution in Selected Cities from {start_date} to {end_date}')
+plt.xlabel('Temperature (°C)')
+plt.ylabel('Frequency')
+plt.legend()
+
+
 
     # TODO: Make a histogram of the temperature reads of a list of selected cities, for the selected time period, 
     # every city has to be its own distribution with a different color.
